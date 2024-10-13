@@ -1,0 +1,31 @@
+{% extends 'webtextpredictor/layout.html' %}
+
+{% block content %}
+
+<div class="title">{{ title }}</div>
+<hr>
+
+<div class="input">
+    <form class="form" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <div class="form_input">
+            <input type="text" name="text" placeholder="Введите текст...">
+        </div>
+        <button class="btn" type="submit">Сгенерировать</button>
+    </form>
+</div>
+
+<hr>
+
+<div class="output">
+    <div class="output_title">Результат:</div>
+    <div class="result">
+        {% if result %}
+            — <i>{{ result }}</i>
+        {% else %}
+            — Ожидание ввода...
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
