@@ -24,7 +24,6 @@ def text_predictor(text):
     tokenizer.fit_on_texts([texts])
 
     dist = list(tokenizer.word_counts.items())
-    print(dist[:10])
 
     data = tokenizer.texts_to_sequences([texts])
     res = np.array(data[0])
